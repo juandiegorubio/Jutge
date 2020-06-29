@@ -4,8 +4,8 @@
 #include <map>
 #include <algorithm>
 #include <iterator>
-
 using namespace std;
+
 
 int sudoku[9][9];
 map<int, set<int>> filas, columnas, cuadrado;
@@ -17,9 +17,6 @@ int converter(char x) {
   if(x<'0' or x>'9') return -1;
   return int(x)-48;
 }
-
-
-
 
 
 // Muestra el sudoku s por pantalla
@@ -36,9 +33,6 @@ void printsudoku(){
 }
 
 
-
-
-
 // Muestra el mapa m por pantalla
 void printmap(map<int, set<int>> m){
   for(auto n : m){
@@ -49,10 +43,6 @@ void printmap(map<int, set<int>> m){
     cout << endl;
   }
 }
-
-
-
-
 
 
 // Recibe las entradas y prepara los mapas y el sudoku
@@ -93,10 +83,6 @@ void creadora() {
 }
 
 
-
-
-
-
 set<int> intersection(set<int>::iterator fb, set<int>::iterator fe, set<int>::iterator cb, set<int>::iterator ce)
 {
   set<int> aux;
@@ -110,11 +96,6 @@ set<int> intersection(set<int>::iterator fb, set<int>::iterator fe, set<int>::it
   }
   return aux;
 }
-
-
-
-
-
 
 
 void calculadora(int f, int c) {
@@ -141,11 +122,7 @@ void calculadora(int f, int c) {
         filas[f].erase(x);
         columnas[c].erase(x);
         cuadrado[q].erase(x);
-/*
-        cout << f << ' ' << c << endl;
-        printsudoku();
-        cout << endl;
-*/
+
         // Final recursividad
         if(c == 8) calculadora(f+1, 0);
         else calculadora(f, c+1);
@@ -159,14 +136,6 @@ void calculadora(int f, int c) {
     }
   }
 }
-
-
-
-
-
-
-
-
 
 
 // Función principal
